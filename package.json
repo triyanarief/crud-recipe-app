@@ -1,0 +1,28 @@
+{
+  "name": "crud-recipe-app",
+  "version": "1.0.0",
+  "description": "recipe manager",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/triyanarief/crud-recipe-app.git"
+  },
+  "author": "triyan arief wibowo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/triyanarief/crud-recipe-app/issues"
+  },
+  "homepage": "https://github.com/triyanarief/crud-recipe-app#readme",
+  "dependencies": {
+    "body-parser": "*",
+    "consolidate": "*",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "pg": "*"
+  }
+}
