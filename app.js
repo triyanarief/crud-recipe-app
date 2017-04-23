@@ -24,8 +24,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:false }));
 
 app.get('/', (req, res) => {
-  res.render('index');
-})
+  // PG Connect
+  pg.connect(connect, (err, client, done) => {
+    if(err) {
+      return console.log('erroro fetching from pool', err);
+    }
+    client.query('SELECT * FROM recipes', (err, result) => {
+      if(err) {
+        return console.log('erroro running query', err);
+      }
+      res.render('index', {recipes: result.rows});
+      done();
+    });
+  });
+});
 
 // server
 app.listen(3000, () => {

@@ -1,5 +1,22 @@
 {>"layout" /}
 
 {<body}
-HELLO WORLD!
+  {#recipes}
+    <div class="well">
+      <h4>{name}<button class="btn btn-primary pull-right" data-toggle="collapse" href="#recipe_{id}" aria-expanded="false" aria-controls="recipe_{id}"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></h4>
+
+      <div class="collapse" id="recipe_{id}">
+        <br>
+        <h5><strong>Ingredients</strong></h5>
+        {ingredients}
+        <br><br>
+        <h5><strong>Directions</strong></h5>
+        {directions}
+        <br><hr>
+        <button class="btn btn-warning edit-recipe"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+        <button class="btn btn-danger delete-recipe"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+  {/recipes}
 {/body}
