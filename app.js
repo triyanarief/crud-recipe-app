@@ -39,6 +39,18 @@ app.get('/', (req, res) => {
   });
 });
 
+app.post('/add', (req, res) => {
+  // PG Connect
+  pg.connect(connect, (err, client, done) => {
+    if(err) {
+      return console.log('erroro fetching from pool', err);
+    }
+    client.query('INSERT INTO recipes(name, ingredients, directions) VALUES($1, $2, $3)',[req.body.name, req.body.ingredients, req.body.directions]);
+    done();
+    res.redirect('/');
+  });
+});
+
 // server
 app.listen(3000, () => {
   console.log('server started on port:3000');
