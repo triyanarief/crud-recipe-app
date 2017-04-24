@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   // PG Connect
   pg.connect(connect, (err, client, done) => {
     if(err) {
-      return console.log('erroro fetching from pool', err);
+      return console.log('error fetching from pool', err);
     }
     client.query('SELECT * FROM recipes', (err, result) => {
       if(err) {
@@ -43,12 +43,25 @@ app.post('/add', (req, res) => {
   // PG Connect
   pg.connect(connect, (err, client, done) => {
     if(err) {
-      return console.log('erroro fetching from pool', err);
+      return console.log('error fetching from pool', err);
     }
     client.query('INSERT INTO recipes(name, ingredients, directions) VALUES($1, $2, $3)', [req.body.name, req.body.ingredients, req.body.directions]);
-    
+
     done();
     res.redirect('/');
+  });
+});
+
+app.delete('/delete/:id', (req, res) => {
+  // PG Connect
+  pg.connect(connect, (err, client, done) => {
+    if(err) {
+      return console.log('error fetching from pool', err);
+    }
+    client.query('DELETE FROM recipes WHERE id = $1', [req.params.id]);
+
+    done();
+    res.sendStatus(200);
   });
 });
 
