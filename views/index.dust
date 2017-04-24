@@ -39,11 +39,11 @@
               </div>
               <div class="form-group">
                 <label>Ingredients</label>
-                <textarea class="form-control" name="Ingredients"></textarea>
+                <textarea class="form-control" name="ingredients"></textarea>
               </div>
               <div class="form-group">
                 <label>Directions</label>
-                <textarea class="form-control" name="Directions"></textarea>
+                <textarea class="form-control" name="directions"></textarea>
               </div>
             </div>
             <div class="modal-footer">

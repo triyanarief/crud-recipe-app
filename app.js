@@ -45,7 +45,8 @@ app.post('/add', (req, res) => {
     if(err) {
       return console.log('erroro fetching from pool', err);
     }
-    client.query('INSERT INTO recipes(name, ingredients, directions) VALUES($1, $2, $3)',[req.body.name, req.body.ingredients, req.body.directions]);
+    client.query('INSERT INTO recipes(name, ingredients, directions) VALUES($1, $2, $3)', [req.body.name, req.body.ingredients, req.body.directions]);
+    
     done();
     res.redirect('/');
   });
